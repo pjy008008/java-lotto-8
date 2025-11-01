@@ -15,7 +15,7 @@ public class LottoMachine {
         this.lottoGenerator = lottoGenerator;
     }
 
-    PurchasedLotto issueTickets(int purchaseAmount) {
+    public PurchasedLotto issueTickets(int purchaseAmount) {
         int ticketAmount = purchaseAmount / 1000;
         List<Lotto> purchaseLotto = IntStream.range(0, ticketAmount)
                 .mapToObj(i -> lottoGenerator.generate())
