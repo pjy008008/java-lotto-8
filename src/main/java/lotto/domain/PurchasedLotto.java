@@ -8,4 +8,12 @@ public class PurchasedLotto {
     public PurchasedLotto(List<Lotto> purchasedLotto) {
         this.purchasedLotto = purchasedLotto;
     }
+
+    public List<Lotto> getPurchasedLotto() {
+        return purchasedLotto;
+    }
+
+    public int getTicketAmount() {
+        return purchasedLotto.size();
+    }
 }
