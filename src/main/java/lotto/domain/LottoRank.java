@@ -27,19 +27,19 @@ public enum LottoRank {
     }
 
     public static LottoRank valueOf(int matchCount, boolean bonusMatch) {
-        if (matchCount == 6) {
+        if (matchCount == FIRST.matchCount) {
             return FIRST;
         }
-        if (matchCount == 5) {
+        if (matchCount == SECOND.matchCount) {
             if (bonusMatch) {
                 return SECOND;
             }
             return THIRD;
         }
-        if (matchCount == 4) {
+        if (matchCount == FOURTH.matchCount) {
             return FOURTH;
         }
-        if (matchCount == 3) {
+        if (matchCount == FIFTH.matchCount) {
             return FIFTH;
         }
         return NONE;
