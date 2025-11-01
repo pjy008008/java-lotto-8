@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static lotto.util.LottoConstants.*;
+
 public class Lotto {
     private final List<Integer> numbers;
 
@@ -19,8 +21,8 @@ public class Lotto {
     }
 
     private static void validateSize(List<Integer> numbers) {
-        if (numbers.size() != 6) {
-            throw new IllegalArgumentException("로또 번호는 6개여야 합니다.");
+        if (numbers.size() != LOTTO_NUMBER_COUNT) {
+            throw new IllegalArgumentException("로또 번호는 " + LOTTO_NUMBER_COUNT + "개여야 합니다.");
         }
     }
 
@@ -33,8 +35,8 @@ public class Lotto {
 
     private static void validateRange(List<Integer> numbers) {
         for (Integer number : numbers) {
-            if (number < 1 || number > 45) {
-                throw new IllegalArgumentException("로또 번호는 1~45 사이여야 합니다.");
+            if (number < LOTTO_NUMBER_MIN || number > LOTTO_NUMBER_MAX) {
+                throw new IllegalArgumentException("로또 번호는 " + LOTTO_NUMBER_MIN + "에서 " + LOTTO_NUMBER_MAX + " 사이여야 합니다.");
             }
         }
     }
