@@ -12,8 +12,8 @@ public class InputView {
 
     private static final String ERROR_PREFIX = "[ERROR] ";
     private static final String PURCHASE_AMOUNT_PROMPT = "구입금액을 입력해 주세요.";
-    private static final String WINNING_NUMBERS_PROMPT = "당첨 번호를 입력해 주세요.";
-    private static final String BONUS_NUMBER_PROMPT = "보너스 번호를 입력해 주세요.";
+    private static final String WINNING_NUMBERS_PROMPT = "\n당첨 번호를 입력해 주세요.";
+    private static final String BONUS_NUMBER_PROMPT = "\n보너스 번호를 입력해 주세요.";
 
     private <T> T readValidatedInput(String prompt, Supplier<T> parseAndValidate) {
         while (true) {
