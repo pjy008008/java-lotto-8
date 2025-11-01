@@ -2,14 +2,12 @@ package lotto.controller;
 
 import lotto.AppConfig;
 import lotto.domain.Lotto;
-import lotto.domain.LottoRank;
 import lotto.domain.PurchasedLotto;
+import lotto.domain.WinningStat;
 import lotto.service.LottoGameService;
 import lotto.service.LottoMachine;
 import lotto.ui.InputView;
 import lotto.ui.OutputView;
-
-import java.util.Map;
 
 public class LottoController {
     private final InputView inputView;
@@ -34,9 +32,9 @@ public class LottoController {
         Lotto winningLotto = inputView.getWinningNumbers();
         int bonusNumber = inputView.getBonusNumber(winningLotto);
 
-        Map<LottoRank, Integer> result = lottoGameService.calculateResult(purchasedLotto, winningLotto, bonusNumber);
+        WinningStat winningStat = lottoGameService.calculateResult(purchasedLotto, winningLotto, bonusNumber);
 
-        outputView.printResult(result);
-        outputView.printProfit(result, purchaseAmount);
+        outputView.printResult(winningStat);
+        outputView.printProfit(winningStat, purchaseAmount);
     }
 }

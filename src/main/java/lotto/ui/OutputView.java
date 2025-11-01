@@ -3,6 +3,7 @@ package lotto.ui;
 import lotto.domain.Lotto;
 import lotto.domain.LottoRank;
 import lotto.domain.PurchasedLotto;
+import lotto.domain.WinningStat;
 
 import java.util.*;
 
@@ -24,7 +25,7 @@ public class OutputView {
         }
     }
 
-    public void printResult(Map<LottoRank, Integer> result) {
+    public void printResult(WinningStat winningStat) {
         System.out.println(RESULT_HEADER);
         List<LottoRank> ranksToDisplay = new ArrayList<>(
                 List.of(FIFTH, FOURTH, THIRD, SECOND, FIRST));
@@ -32,19 +33,16 @@ public class OutputView {
             String displayFormat = String.format(RESULT_FORMAT,
                     rank.getDescription(),
                     rank.getPrizeMoney(),
-                    result.get(rank)
+                    winningStat.getCount(rank)
             );
             System.out.println(displayFormat);
         }
     }
 
-    public void printProfit(Map<LottoRank, Integer> result, int purchaseAmount) {
-        long sum = 0L;
-        for (LottoRank rank : result.keySet()) {
-            sum += rank.getPrizeMoney() * result.get(rank);
-        }
+    public void printProfit(WinningStat winningStat, int purchaseAmount) {
+        double profit = winningStat.calculateProfit(purchaseAmount);
         String displayFormat = String.format(PROFIT_MESSAGE,
-                ((double) sum / purchaseAmount) * 100);
+                profit);
         System.out.println(displayFormat);
     }
 }
