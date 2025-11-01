@@ -19,7 +19,7 @@ public class OutputView {
         String displayFormat = String.format(PURCHASED_LOTTO_MESSAGE,
                 ticketAmount);
         System.out.println(displayFormat);
-        for (Lotto lotto: purchasedLotto.getPurchasedLotto()) {
+        for (Lotto lotto: purchasedLotto.purchasedLotto()) {
             System.out.println(lotto);
         }
     }

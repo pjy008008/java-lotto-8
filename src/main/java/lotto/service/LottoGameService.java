@@ -18,7 +18,7 @@ public class LottoGameService {
         for (LottoRank rank : LottoRank.values()) {
             results.put(rank, 0);
         }
-        for (Lotto lotto : purchasedLotto.getPurchasedLotto()) {
+        for (Lotto lotto : purchasedLotto.purchasedLotto()) {
             int matchCount = lotto.calculateMatchCount(winningLotto);
             boolean bonusMatch = lotto.has(bonusNumber);
             LottoRank rank = LottoRank.valueOf(matchCount, bonusMatch);
