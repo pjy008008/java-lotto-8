@@ -1,4 +1,4 @@
-package lotto.validation;
+package lotto.ui;
 
 import lotto.domain.Lotto;
 

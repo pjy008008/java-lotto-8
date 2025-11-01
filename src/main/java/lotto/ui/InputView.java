@@ -2,7 +2,6 @@ package lotto.ui;
 
 import camp.nextstep.edu.missionutils.Console;
 import lotto.domain.Lotto;
-import lotto.validation.InputValidator;
 
 import java.util.function.Supplier;
 
