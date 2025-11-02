@@ -25,15 +25,23 @@ public class LottoController {
     public void run() {
         int purchaseAmount = inputView.getPurchaseAmount();
 
-        PurchasedLotto purchasedLotto = lottoMachine.issueTickets(purchaseAmount);
-
-        outputView.printPurchasedLotto(purchasedLotto);
+        PurchasedLotto purchasedLotto = issueLotto(purchaseAmount);
 
         Lotto winningLotto = inputView.getWinningNumbers();
         int bonusNumber = inputView.getBonusNumber(winningLotto);
 
         WinningStat winningStat = lottoGameService.calculateResult(purchasedLotto, winningLotto, bonusNumber);
 
+        printFinalResult(winningStat, purchaseAmount);
+    }
+
+    private PurchasedLotto issueLotto(int purchaseAmount) {
+        PurchasedLotto purchasedLotto = lottoMachine.issueTickets(purchaseAmount);
+        outputView.printPurchasedLotto(purchasedLotto);
+        return purchasedLotto;
+    }
+
+    private void printFinalResult(WinningStat winningStat, int purchaseAmount) {
         outputView.printResult(winningStat);
         outputView.printProfit(winningStat, purchaseAmount);
     }
