@@ -19,7 +19,7 @@ public class InputParser {
             throw new IllegalArgumentException(ERROR_PURCHASE_AMOUNT_REQUIRED);
         }
         try {
-            return Integer.parseInt(input);
+            return Integer.parseInt(input.trim());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERROR_PURCHASE_AMOUNT_NOT_NUMBER);
         }
@@ -45,11 +45,11 @@ public class InputParser {
     }
 
     int parseBonusNumber(String input) {
-        if (input.isEmpty()) {
+        if (input.isBlank()) {
             throw new IllegalArgumentException(ERROR_BONUS_NUMBER_REQUIRED);
         }
         try {
-            return Integer.parseInt(input);
+            return Integer.parseInt(input.trim());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERROR_BONUS_NUMBER_NOT_NUMBER);
         }
