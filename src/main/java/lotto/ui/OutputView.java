@@ -30,13 +30,17 @@ public class OutputView {
         List<LottoRank> ranksToDisplay = new ArrayList<>(
                 List.of(FIFTH, FOURTH, THIRD, SECOND, FIRST));
         for (LottoRank rank : ranksToDisplay) {
-            String displayFormat = String.format(RESULT_FORMAT,
-                    rank.getDescription(),
-                    rank.getPrizeMoney(),
-                    winningStat.getCount(rank)
-            );
+            String displayFormat = formatResultLine(winningStat, rank);
             System.out.println(displayFormat);
         }
+    }
+
+    private static String formatResultLine(WinningStat winningStat, LottoRank rank) {
+        return String.format(RESULT_FORMAT,
+                rank.getDescription(),
+                rank.getPrizeMoney(),
+                winningStat.getCount(rank)
+        );
     }
 
     public void printProfit(WinningStat winningStat, int purchaseAmount) {
