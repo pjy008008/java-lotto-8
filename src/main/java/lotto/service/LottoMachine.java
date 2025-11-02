@@ -1,7 +1,7 @@
 package lotto.service;
 
 import lotto.domain.Lotto;
-import lotto.domain.LottoGenerator;
+import lotto.domain.generator.LottoGenerator;
 import lotto.domain.PurchasedLotto;
 
 import java.util.List;

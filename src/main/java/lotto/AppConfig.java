@@ -1,7 +1,7 @@
 package lotto;
 
-import lotto.domain.LottoGenerator;
-import lotto.domain.RandomLottoGenerator;
+import lotto.domain.generator.LottoGenerator;
+import lotto.domain.generator.RandomLottoGenerator;
 import lotto.service.LottoGameService;
 import lotto.service.LottoMachine;
 import lotto.ui.InputView;
